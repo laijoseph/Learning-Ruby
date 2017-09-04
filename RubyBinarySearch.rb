@@ -2,8 +2,8 @@ def sequentialSearch(target, pointer)
   tries = 0
   until target == pointer
     #puts "seqSearch pointer at #{pointer}"
-    pointer = pointer + 1
-    tries = tries + 1
+    pointer += 1
+    tries += 1
   end
   return tries
 end
@@ -25,19 +25,20 @@ def binarySearch(target,n)
     else
       upper = midpt(lower,upper)
     end
-    tries=tries+1
+    tries += 1
   end
   return tries
 end
 
 def jumpSearch(target, n)
+  
   jump = (Math.sqrt(n)).floor
-  puts "Blocks are sized: #{jump}"
+  puts "Jump search blocks are sized: #{jump}"
   blockStart = 0
   tries = 0
   until target < (blockStart+jump)
     blockStart = blockStart+jump
-    tries = tries + 1
+    tries += 1
   end
   puts "blockstart: #{blockStart}"
   seqTries = sequentialSearch(target,blockStart)
